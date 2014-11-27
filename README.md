@@ -1,6 +1,6 @@
-## pingplusplus ![NPM version](https://img.shields.io/npm/v/pingplusplus.svg?style=flat) 
+## pingplusplus ![NPM version](https://img.shields.io/npm/v/pingplusplus.svg?style=flat)
 
-just another ping++ Node.js SDK
+a better ping++ Node.js SDK, simple and elegent.
 
 ### Installation
 ```bash
@@ -10,6 +10,21 @@ $ npm install pingplusplus
 ### Example
 ```js
 var pingplusplus = require('pingplusplus');
+var pingpp = new pingplusplus('MY_API_KEY');
+
+pingpp.sdk.createCharge({
+  order_no: '123456789',
+  amount: 100,
+  'app[id]': 'app_1234567890abcDEF',
+  channel: 'upmp',
+  subject: 'Just for test',
+  body: 'your payment description'
+}, function(err, result){
+  if (err)
+    console.error(err);
+
+  console.log(result);
+});
 ```
 
 ### API
